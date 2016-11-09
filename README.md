@@ -1,5 +1,5 @@
 # Erlangのトレースツールttbを使ってみる
-Erlangは19.1で動作確認 
+Erlangは19.1で動作確認  
 ttbはErlangのバージョン19から使え、18にはないので注意
 
 ## 動作デモ
@@ -32,5 +32,5 @@ ttb_upload_ttb-20161109-184359/
 └── nonode@nohost-ttb.ti
 ```
 
-ttbが使えるはずなのに、rebar3でビルド後に「exception error: undefined function ttb:tracer/0」などと表示する場合は、rebar.configのrelxのdepへobserverを追加すると良い
+ttbが使えるはずなのに、rebar3でビルド後に「exception error: undefined function ttb:tracer/0」などと表示する場合は、rebar.configのrelxのdepへobserverを追加すると良い  
 エラーが消えてttbが使えるようになる

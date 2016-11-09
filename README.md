@@ -1,6 +1,6 @@
 # Erlangのトレースツールttbを使ってみる
-Erlangは19.1で動作確認  
-ttbはErlangのバージョン19から使え、18にはないので注意
+Erlangは19.1で動作確認しました。  
+ttbはErlangのバージョン19から使え、18にはないので注意が必要です。
 
 ## 動作デモ
 ```shell
@@ -15,15 +15,15 @@ ok
 ```
 
 ## トレースの流れ
-1. 最初に ttb:tracer() しておく
-2. ttb:p(all, call) 等として対象を決める。callの他にsend, receive, messageなど色々ある。詳細は(dbg)[http://erlang.org/doc/man/dbg.html]のp(Items, Flags)にある
-3. ttb:tp(Mod, caller) 等としてトレースするモジュールと、トレース位置(呼び出し時か、戻り時か)を決める。詳細は(ttb)[http://erlang.org/doc/man/ttb.html]にある
-4. ここでトレースしたい処理を実行
-5. {stopped, Dir} = ttb:stop(return_fetch_dir) 等としてトレースを止め、ログ保存先を取得
-6. ttb:format(Dir) とするとトレース結果が表示される。出力フォーマットを変えたい場合は ttb:format(Dir, {handler, {fun show/4, []}}) 等としてフォーマット関数(この例ではshow)を指定する。詳細は(ttb)[http://erlang.org/doc/man/ttb.html]にある
+1. 最初に ttb:tracer() します
+2. ttb:p(all, call) 等としてトレース対象を決めます。callの他にはsend, receive, messageなど色々。詳細は[dbg](http://erlang.org/doc/man/dbg.html)のp(Items, Flags)
+3. ttb:tp(Mod, caller) 等としてトレースを有効化するモジュール、トレース位置(呼び出し時か、戻り時か)を決めます。詳細は[ttb](http://erlang.org/doc/man/ttb.html)
+4. トレースしたい処理を実行します
+5. {stopped, Dir} = ttb:stop(return_fetch_dir) 等としてトレースを止めて、ログ保存先を取得
+6. ttb:format(Dir) とするとトレース結果が表示されます。出力フォーマットを変えたい場合は ttb:format(Dir, {handler, {fun show/4, []}}) 等としてフォーマット関数(この例ではshow)を指定します。詳細は[ttb](http://erlang.org/doc/man/ttb.htm)
 
 ## 備考
-トレース実行後は以下のようなファイルができる
+トレース実行後は以下のようなファイルが自動で作成されます
 
 ```txt
 ttb_last_config
@@ -32,5 +32,5 @@ ttb_upload_ttb-20161109-184359/
 └── nonode@nohost-ttb.ti
 ```
 
-ttbが使えるはずなのに、rebar3でビルド後に「exception error: undefined function ttb:tracer/0」などと表示する場合は、rebar.configのrelxのdepへobserverを追加すると良い  
-エラーが消えてttbが使えるようになる
+ttbが使えるはずなのに、rebar3でビルド後に「exception error: undefined function ttb:tracer/0」などと表示される場合は、rebar.configのrelxのdepへobserverを追加すると良です  
+エラーが消えてttbが使えるようになります

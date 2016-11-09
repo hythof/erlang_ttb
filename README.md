@@ -24,10 +24,13 @@ ok
 
 ## 備考
 トレース実行後は以下のようなファイルができる
+
+```txt
 ttb_last_config
 ttb_upload_ttb-20161109-184359/
 ├── nonode@nohost-ttb
 └── nonode@nohost-ttb.ti
+```
 
 ttbが使えるはずなのに、rebar3でビルド後に「exception error: undefined function ttb:tracer/0」などと表示する場合は、rebar.configのrelxのdepへobserverを追加すると良い
 エラーが消えてttbが使えるようになる
